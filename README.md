@@ -4,7 +4,7 @@
 
 `toReality` is a [ghost](https://github.com/TryGhost/Ghost) theme based on a official theme [`Wave`](https://github.com/TryGhost/Wave). Our theme is under development, feel free to pull request! Thank you～
 
-You can download theme in release.
+You can download theme in [release](https://github.com/vonhyou/theme_toReality/releases/latest).
 
 ### Screenshot
 

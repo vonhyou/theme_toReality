@@ -4,6 +4,348 @@ DEPENDENCIES
 =====
 */
 
+/* dependcies for link */
+.r-link{
+  display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href]{
+  color: var(--rLinkColor) !important;
+  text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+/* 
+outlined text
+*/ 
+
+.text-outlined{
+  --uiTextOutlinedWeight: var(--textOutlinedWeight, 2px);
+  --uiTextOutlinedLineColor: var(--textOutlinedLineColor, currentColor);
+
+  padding: var(--textOutlinedPadding, .25rem);
+  position: var(--textOutlinedPosition, relative);
+}
+
+.text-outlined__label{
+  display: var(--textOutlinedLabelDisplay, block);
+}
+
+.text-outlined::before,
+.text-outlined::after,
+.text-outlined__label::before,
+.text-outlined__label::after{
+  content: "";     
+  background-color: var(--uiTextOutlinedLineColor);
+  position: absolute; 
+}
+
+.text-outlined::before, 
+.text-outlined::after{
+  width: 100%;
+  height: var(--uiTextOutlinedWeight);
+  left: 0;
+}
+
+.text-outlined__label::before,
+.text-outlined__label::after{
+  width: var(--uiTextOutlinedWeight);
+  height: 100%;
+  top: 0;
+}
+
+.text-outlined::before{
+  top: 0;
+}
+
+.text-outlined::after{
+  bottom: 0;
+}
+
+.text-outlined__label::before{
+  left: 0;
+}
+
+.text-outlined__label::after{
+  right: 0;
+}
+
+/*
+adapters
+*/
+
+.text-outlined:not(.r-link):not(.r-button){
+  display: var(--textOutlinedDisplay, inline-flex);
+  color: var(--textOutlinedColor, currentColor);
+}
+
+.text-outlined.r-link{
+  --rLinkDisplay: var(--textOutlinedDisplay);
+  --rLinkColor: var(--textOutlinedColor, currentColor);
+}
+
+.text-underlined{
+  /*
+  1. I use pixels units because others units (em, rem, vw, vh, etc) can
+  lead to the mistake of displaying a circumcised line
+  */
+
+  --uiTextUnderlinedLineHeight: var(--textUnderlinedLineHeight, 2px); /* 1 */
+  --uiTextUnderlinedLineGap: var(--textUnderlinedLineGap, .5rem);
+  --uiTextUnderlinedPaddingBottom: calc(var(--uiTextUnderlinedLineHeight) + var(--uiTextUnderlinedLineGap));
+
+  padding-bottom: var(--uiTextUnderlinedPaddingBottom) !important;
+  position: var(--textUnderlinedPosition, relative) !important;
+}
+
+.text-underlined::after{
+  content: "";
+  width: var(--textUnderlinedLineWidht, 100%) !important;
+  height: var(--uiTextUnderlinedLineHeight) !important;
+
+  background-color: var(--textUnderlinedLineColor, currentColor) !important;
+
+  position: absolute;
+  left: var(--textUnderlinedLineLeft, 0) !important;
+  bottom: var(--textUnderlinedLineBottom, 0) !important;
+}
+
+/* 
+text flat
+*/ 
+
+.text-flat{
+  position: relative;
+  z-index: 0;
+}
+
+.text-flat::before, 
+.text-flat::after{
+  content: "";
+  background-color: var(--textFlatBackgroundColor, #000);	
+  position: absolute;
+  z-index: -1;
+}
+
+.text-flat__label{
+  padding: var(--textFlatPadding, .25rem);
+}
+
+/*
+=====
+EXTENSIONS FOR ANIMATIONS
+=====
+*/
+
+/* 
+text-outlined extension
+
+1. 
+The transition property isn't used because there are limits of the 
+transition property syntax, particularly multiple values can't be used. 
+*/ 
+
+.text-outlined{
+  --uiTextOutlineLineTransitionPropertyDefault: var(--textOutlineLineTransitionPropertyDefault, transform, opacity);
+  --uiTextOutlineLineTransitionDurationDefault: var(--textOutlineLineTransitionDurationDefault, .2s, .15s);
+  --uiTextOutlineLineTransitionTimingFunctionDefault: var(--textOutlineLineTransitionTimingFunctionDefault, ease-out);
+  --uiTextOutlineLineTransitionDelayDefault: var(--textOutlineLineTransitionDelayDefault, 0s, .15s);
+  --uiTextOutlineLineWillChangeDefault: var(--textOutlineLineWillChangeDefault, transform, opacity);
+  
+  overflow: hidden;
+}
+
+.text-outlined::before{
+  transform: var(--textOutlineTopLineTransform, translate3d(-105%, 0, 0));
+  transition-property: var(--textOutlineTopLineTransitionProperty, var(--uiTextOutlineLineTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textOutlineTopLineTransitionDuration, var(--uiTextOutlineLineTransitionDurationDefault)); /* 1 */
+  transition-timing-function: var(--textOutlineTopLineTransitionTimingFunction, var(--uiTextOutlineLineTransitionTimingFunctionDefault)); /* 1 */
+  transition-delay: var(--textOutlineTopLineTransitionDelay, var(--uiTextOutlineLineTransitionDelayDefault)); /* 1 */
+  will-change: var(--textOutlineTopLineWillChange, var(--uiTextOutlineLineWillChangeDefault));
+}
+
+.text-outlined::after{
+  transform: var(--textOutlineBottomLineTransform, translate3d(105%, 0, 0));
+  transition-property: var(--textOutlineBottomLineTransitionProperty, var(--uiTextOutlineLineTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textOutlineBottomLineTransitionDuration, var(--uiTextOutlineLineTransitionDurationDefault)); /* 1 */
+  transition-timing-function: var(--textOutlineBottomLineTransitionTimingFunction, var(--uiTextOutlineLineTransitionTimingFunctionDefault)); /* 1 */
+  transition-delay: var(--textOutlineBottomLineTransitionDelay, var(--uiTextOutlineLineTransitionDelayDefault)); /* 1 */
+  will-change: var(--textOutlineBottomLineWillChange, var(--uiTextOutlineLineWillChangeDefault));
+}
+
+.text-outlined__label::before{
+  transform: var(--textOutlineLeftLineTransform, translate3d(0%, -100%, 0));
+  transition-property: var(--textOutlineLeftLineTransitionProperty, var(--uiTextOutlineLineTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textOutlineLeftLineTransitionDuration, var(--uiTextOutlineLineTransitionDurationDefault)); /* 1 */
+  transition-timing-function: var(--textOutlineLeftLineTransitionTimingFunction, var(--uiTextOutlineLineTransitionTimingFunctionDefault)); /* 1 */
+  transition-delay: var(--textOutlineLeftLineTransitionDelay, var(--uiTextOutlineLineTransitionDelayDefault)); /* 1 */
+  will-change: var(--textOutlineLeftLineWillChange, var(--uiTextOutlineLineWillChangeDefault))
+}
+
+.text-outlined__label::after{
+  transform: var(--textOutlineRightLineTransform, translate3d(0%, 100%, 0));
+  transition-property: var(--textOutlineRightLineTransitionProperty, var(--uiTextOutlineLineTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textOutlineRightLineTransitionDuration, var(--uiTextOutlineLineTransitionDurationDefault));  /* 1 */
+  transition-timing-function: var(--textOutlineRightLineTransitionTimingFunction, var(--uiTextOutlineLineTransitionTimingFunctionDefault)); /* 1 */
+  transition-delay: var(--textOutlineRightLineTransitionDelay, var(--uiTextOutlineLineTransitionDelayDefault)); /* 1 */
+  will-change: var(--textOutlineRightLineWillChange, var(--uiTextOutlineLineWillChangeDefault));
+}
+
+.text-outlined::before,
+.text-outlined::after,
+.text-outlined__label::before,
+.text-outlined__label::after{
+  opacity: 0;
+}
+
+.text-outlined:hover::before,
+.text-outlined:hover::after,
+.text-outlined:hover .text-outlined__label::before,
+.text-outlined:hover .text-outlined__label::after{
+  opacity: 1;
+}
+
+/*
+text-underlined extension
+
+1. 
+The transition property isn't used because there are limits of the 
+transition property syntax, particularly multiple values can't be used. 
+*/
+
+.text-underlined{
+  overflow: hidden;
+}
+
+.text-underlined::after{
+  transform: var(--textUnderlinedLineTransform);
+  transition-property: var(--textUnderlinedLineTransitionProperty, transform); /* 1 */
+  transition-duration: var(--textUnderlinedLineTransitionDuration, .2s);  /* 1 */
+  transition-timing-function: var(--textUnderlinedLineTransitionTimingFunction, ease-in); /* 1 */
+  transition-delay: var(--textUnderlinedLineTransitionDelay, 0s); /* 1 */
+  will-change: var(--textUnderlinedLineWillChange, transform);
+}
+
+/* 
+flat text extension
+
+1. 
+The transition property isn't used because there are limits of the 
+transition property syntax, particularly multiple values can't be used. 
+*/ 
+
+.text-flat{
+  --uiTextFlatPlanesOpacityDefault: var(--textFlatPlanesOpacityDefault, 0);
+  --uiTextFlatPlanesTransitionPropertyDefault: var(--textFlatPlanesTransitionPropertyDefault, transform, opacity);
+  --uiTextFlatPlanesTransitionDurationDefault: var(--textFlatPlanesTransitionDurationDefault, .2s);  
+  --uiTextFlatPlanesTransitionTimingDefault: var(--textFlatPlanesTransitionTimingDefault,  ease-out);
+  --uiTextFlatPlanesTransitionDelayDefault: var(--textFlatPlanesTransitionDelayDefault, 0, .03s);
+
+  overflow: hidden;
+  transition-property: var(--textFlatTransitionProperty, color); /* 1 */
+  transition-duration: var(--textFlatFirstPlaneTransitionDuration, .3s); /* 1 */
+  transition-timing-function: var(--textFlatTransitionTimingFunction, ease-out); /* 1 */
+  transition-delay: var(--textFlatTransitionDelay); /* 1 */
+}
+
+.text-flat__label{
+  display: block;
+}
+
+.text-flat::before{
+  width: var(--textFlatFirstPlaneWidth, auto);
+  height: var(--textFlatFirstPlaneHeight, auto);
+
+  top: var(--textFlatFirstPlaneTop, auto);
+  right: var(--textFlatFirstPlaneRight, auto);
+  bottom: var(--textFlatFirstPlaneBottom, auto);
+  left: var(--textFlatFirstPlaneLeft, auto);
+
+  opacity: var(--textFlatFirstPlaneOpacity, var(--uiTextFlatPlanesOpacityDefault));	
+  transform: var(--textFlatFirstPlaneTransform);
+  transition-property: var(--textFlatFirstPlaneTransitionProperty, var(--uiTextFlatPlanesTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textFlatFirstPlaneTransitionDuration, var(--uiTextFlatPlanesTransitionDurationDefault)); /* 1 */  
+  transition-timing-function: var(--textFlatFirstPlaneTransitionTimingFunction, var(--uiTextFlatPlanesTransitionTimingDefault)); /* 1 */
+  transition-delay: var(--textFlatFirstPlaneTransitionDelay, var(--uiTextFlatPlanesTransitionDelayDefault)); /* 1 */
+}
+
+.text-flat::after{
+  width: var(--textFlatSecondPlaneWidth, auto);
+  height: var(--textFlatSecondPlaneHeigth, auto);
+
+  top: var(--textFlatSecondPlaneTop, auto);
+  right: var(--textFlatSecondPlaneRight, auto);
+  bottom: var(--textFlatSecondPlaneBottom, auto);
+  left: var(--textFlatSecondPlaneLeft, auto);  
+
+  transform: var(--textFlatSecondPlaneTransform);
+  opacity: var(--textFlatSecondPlaneOpacity, var(--uiTextFlatPlanesOpacityDefault));	
+  transition-property: var(--textFlatSecondPlaneTransitionProperty, var(--uiTextFlatPlanesTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textFlatSecondPlaneTransitionDuration, var(--uiTextFlatPlanesTransitionDurationDefault)); /* 1 */
+  transition-timing-function: var(--textFlatSecondPlaneTransitionTimingFunction, var(--uiTextFlatPlanesTransitionTimingDefault)); /* 1 */
+  transition-delay: var(--textFlatSecondPlaneTransitionDelay, var(--uiTextFlatPlanesTransitionDelayDefault)); /* 1 */
+}
+
+/*
+adapters
+*/
+
+.text-flat:not(.r-link):hover{
+  color: var(--textFlatColorHover, #fff);
+}
+
+.r-link.text-flat:hover{
+  --rLinkColor: var(--textFlatColorHover, #fff);
+}
+
+/* 
+sliding text
+
+1. 
+The transition property isn't used because there are limits of the 
+transition property syntax, particularly multiple values can't be used. 
+*/ 
+
+.text-sliding{
+  --uiTextSlidingColorDefault: var(--textSlidingColorDefault, currentColor);
+  --uiTextSlidingTransitionPropertyDefault: var(--textSlidingTransitionPropertyDefault, transform);
+  --uiTextSlidingTransitionDurationDefault: var(--textSlidingTransitionDurationDefault, .35s);  
+  --uiTextSlidingTransitionDelayDefault: var(--textSlidingTransitionDelayDefault);
+  --uiTextSlidingTransitionTimingDefault: var(--textSlidingTransitionTimingDefault, cubic-bezier(.86, .6, .08, 1.01)); 
+  --uiTextSlidingWillChangeDefault: var(--textSlidingWillChangeDefault, transform);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.text-sliding::before{
+  content: attr(data-text-sliding);
+  position: absolute;
+}
+
+.text-sliding::before{
+  color: var(--textSlidingBackColor, var(--uiTextSlidingColorDefault));
+  
+  transform: var(--textSlidingBackTransform);
+  transition-property: var(--textSlidingBackTransitionProperty, var(--uiTextSlidingTransitionPropertyDefault)); /* 1 */
+  transition-timing-function: var(--textSlidingBackTransitionTimingFunction, var(--uiTextSlidingTransitionTimingDefault)); /* 1 */
+  transition-duration: var(--textSlidingBackTransitionDuration, var(--uiTextSlidingTransitionDurationDefault)); /* 1 */
+  transition-delay: var(--textSlidingBackTransitionDelay, var(--uiTextSlidingTransitionDelayDefault)); /* 1 */
+  will-change: var(--textSlidingBackWillChange, var(--uiTextSlidingWillChangeDefault));
+}
+
+.text-sliding__label{
+  display: var(--textSlidingFrontDisplay, block);
+  color: var(--textSlidingFrontColor, var(--uiTextSlidingColorDefault));
+  
+  transform: var(--textSlidingFrontTransform);
+  transition-property: var(--textSlidingBackTransitionProperty, var(--uiTextSlidingTransitionPropertyDefault)); /* 1 */
+  transition-duration: var(--textSlidingBackTransitionDuration, var(--uiTextSlidingTransitionDurationDefault)); /* 1 */
+  transition-timing-function: var(--textSlidingBackTransitionTimingFunction, var(--uiTextSlidingTransitionTimingDefault)); /* 1 */
+  transition-delay: var(--textSlidingBackTransitionDelay, var(--uiTextSlidingTransitionDelayDefault)); /* 1 */
+  will-change: var(--textSlidingFrontWillChange, var(--uiTextSlidingWillChangeDefault));
+}
+
+/* dependencies for button */
 .r-button {
 	--uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
 	--uirButtonPadding: var(
@@ -137,6 +479,26 @@ Styles of elements with background
 EFFECTS
 =====
 */
+
+
+.text-underlined_v3{
+  --textUnderlinedLineTransform: translate3d(-105%, 0, 0);
+}
+
+.text-underlined_v3:hover{
+  --textUnderlinedLineTransform: translate3d(0, 0, 0);
+}
+
+
+.text-sliding_v7{
+  --textSlidingBackTransform: translate3d(-110%, 0, 0);
+  --textSlidingFrontTransform: translate3d(0, 0, 0);
+}
+
+.text-sliding_v7:hover{
+  --textSlidingBackTransform: translate3d(0, 0, 0);
+  --textSlidingFrontTransform: translate3d(110%, 0, 0);
+}
 
 /* effect 9 */
 

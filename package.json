@@ -1,7 +1,7 @@
 {
     "name": "toreality",
     "description": "A new Ghost theme based on `Wave`",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"

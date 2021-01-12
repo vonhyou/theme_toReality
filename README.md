@@ -10,7 +10,7 @@ You can download theme in [release](https://github.com/vonhyou/theme_toReality/r
 
 Here we provide a online [demo](https://toreality.lenva.tech)
 
-![](./pics/main.png)
+![](./pics/main.jpg)
 
 ### Development
 

@@ -19,9 +19,11 @@
 <body class="{{body_class}}{{{block "body_class"}}}">
     <div class="site">
         {{> header}}
-        {{#is "home"}}
-            {{> cover}}
-        {{/is}}
+        <div class="site-cover">
+            {{#is "home"}}
+                {{> cover}}
+            {{/is}}
+        </div>
         <div class="site-content">
             {{{body}}}
         </div>

@@ -13,8 +13,7 @@
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    color: black;
+    /* text-transform: uppercase; */
 }
 
 .main-nav {

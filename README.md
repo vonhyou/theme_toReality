@@ -1,6 +1,6 @@
 ## hello, this is `toReality`
 
-![](./pics/logo_256x256.png)
+<img src="./pics/logo_256x256.png" alt="logo" style="zoom:50%;" />
 
 `toReality` is a [ghost](https://github.com/TryGhost/Ghost) theme based on a official theme [`Wave`](https://github.com/TryGhost/Wave). Our theme is under development, feel free to pull request! Thank you～
 

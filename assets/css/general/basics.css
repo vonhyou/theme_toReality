@@ -41,9 +41,11 @@ a {
     transition: color 0.1s var(--animation-base);
 }
 
+/*
 a:hover {
     text-decoration: underline;
 }
+*/
 
 h1,
 h2,

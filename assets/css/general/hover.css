@@ -4,8 +4,6 @@ DEPENDENCIES
 =====
 */
 
-/* The component will reset button browser styles */
-
 .r-button {
 	--uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
 	--uirButtonPadding: var(
@@ -498,7 +496,7 @@ SETTINGS
 
 .ai-element {
 	--aiElementLineWeight: 5px;
-	--aiElementLineColor: #243aab;
+	--aiElementLineColor: #000000;
 	--aiElementColor: #1b255a;
 	--aiElementColorHover: #243aab;
 }

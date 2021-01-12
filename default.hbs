@@ -19,9 +19,11 @@
 <body class="{{body_class}}{{{block "body_class"}}}">
     <div class="site">
         {{> header}}
-        {{#is "home"}}
-            {{> cover}}
-        {{/is}}
+        <div class="site-cover">
+            {{#is "home"}}
+                {{> cover}}
+            {{/is}}
+        </div>
         <div class="site-content">
             {{{body}}}
         </div>
@@ -33,6 +35,7 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
     <script src="{{asset "built/main.min.js"}}"></script>
 
     {{{block "scripts"}}}

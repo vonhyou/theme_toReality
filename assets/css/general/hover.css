@@ -1,6 +1,6 @@
 /*
 =====
-DEMO DEPENDENCIES
+DEPENDENCIES
 =====
 */
 
@@ -488,57 +488,6 @@ EFFECTS
 
 .ai-element9:hover::after {
 	transform: translate3d(100%, 0, 0) rotate(-45deg);
-}
-
-/*
-=====
-DEMO STYLES
-=====
-*/
-
-body {
-	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Open Sans",
-		"Helvetica Neue", "Segoe UI", "Arial", sans-serif;
-	font-size: 16px;
-	margin: 0;
-}
-
-@media (min-width: 1200px) {
-	body {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(240px, 1fr));
-	}
-}
-
-.section {
-	display: flex;
-	min-height: 300px;
-	text-align: center;
-
-	font-size: 17px;
-	font-weight: 700;
-}
-
-.section:nth-child(2n + 1) {
-	background-color: #f1f4fa;
-}
-
-.section__item {
-	margin: auto;
-}
-
-.section__box:nth-child(n + 2) {
-	margin-top: 40px;
-}
-
-.ai-element__label {
-	--uiaiElementColorHover: var(--aiElementColorHover);
-	font-weight: 700;
-	text-transform: uppercase;
-}
-
-.ai-element:hover .ai-element__label {
-	color: var(--uiaiElementColorHover);
 }
 
 /*

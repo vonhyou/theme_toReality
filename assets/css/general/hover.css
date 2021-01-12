@@ -212,6 +212,8 @@ Styles of elements with background
 	transition-duration: 0.3s;
 }
 
+
+
 /*
 =====
 EFFECTS
@@ -488,6 +490,15 @@ EFFECTS
 	transform: translate3d(100%, 0, 0) rotate(-45deg);
 }
 
+
+.ai-element__label {
+	--uiaiElementColorHover: var(--aiElementColorHover);
+}
+
+.ai-element:hover .ai-element__label {
+	color: var(--uiaiElementColorHover);
+}
+
 /*
 =====
 SETTINGS
@@ -498,7 +509,7 @@ SETTINGS
 	--aiElementLineWeight: 5px;
 	--aiElementLineColor: #000000;
 	--aiElementColor: #1b255a;
-	--aiElementColorHover: #243aab;
+	--aiElementColorHover: #000000;
 }
 
 .ai-element_type1,

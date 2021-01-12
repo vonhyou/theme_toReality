@@ -10,7 +10,7 @@ document.addEventListener('lazyloaded', function (e) {
     }
 });
 
-function initial() {
+$(function () {
     'use strict';
     video();
     gallery();
@@ -18,7 +18,7 @@ function initial() {
     pagination();
     popup();
     subscribe();
-}
+});
 
 function video() {
     'use strict';
@@ -200,11 +200,3 @@ function subscribe() {
         }
     });
 }
-
-(function () {
-    initial();
-    var pjax = new Pjax({
-        selectors: ["title", ".site-content", ".site-cover"]
-    });
-    document.addEventListener("pjax:success", initial);
-})();

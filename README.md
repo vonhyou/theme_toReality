@@ -39,8 +39,8 @@ yarn zip
 
 ### Goal
 
-- [] quote generator at the end of the page
-- [] social links below the describe
-- [] "back to the top" button
-- [] effect for "load more"
-- [] preview effect for post images
+- [ ] quote generator at the end of the page
+- [ ] social links below the describe
+- [ ] "back to the top" button
+- [ ] effect for "load more"
+- [ ] preview effect for post images

@@ -8,7 +8,7 @@ You can download theme in [release](https://github.com/vonhyou/theme_toReality/r
 
 ### demo
 
-Here we provide a online [demo](https://toreality.lenva.tech)
+Here we provide a online demo
 
 ![](./pics/main.jpg)
 
